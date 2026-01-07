@@ -3,9 +3,9 @@ import time
 
 # Shared resource
 counter = 0
-lock = threading.Lock()
+# allows only one thread at a time to enter the critical section
+lock = threading.Lock()  
 
-# Worker function
 def increment(name):
     global counter
     for _ in range(5):

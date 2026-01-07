@@ -2,7 +2,7 @@ import threading
 import time
 
 semaphore = threading.Semaphore(2)  # max 2 threads at a time
-
+## allows threads to access a resource simultaneously.
 def worker(name):
     print(f"{name} trying to enter")
     with semaphore:
@@ -16,3 +16,5 @@ for t in threads:
     t.start()
 for t in threads:
     t.join()
+
+## Output: Only 2 threads run in the critical section at a time.

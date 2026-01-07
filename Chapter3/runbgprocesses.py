@@ -11,4 +11,4 @@ if __name__ == "__main__":
     p.daemon = True
     p.start()
     time.sleep(3)
-    print("Main process exits, daemon process stops")
+    print("Main process exits, process stops")

@@ -27,14 +27,14 @@ def threaded_sum():
         end = (i + 1) * chunk if i != NUM_WORKERS - 1 else len(data)
         t = threading.Thread(target=partial_sum, args=(start, end, results, i))
         threads.append(t)
-        t.start()
+        t.start()                 ##split arr into chunks and start process
     for t in threads:
-        t.join()
+        t.join()      ##wait for thread to fin
     return sum(results)
 
 # Multiprocessing
 def partial_sum_process(start, end, result_queue):
-    result_queue.put(sum(data[start:end]))
+    result_queue.put(sum(data[start:end]))       ##computes sum and puts in a queue
 
 def multiprocess_sum():
     processes = []
